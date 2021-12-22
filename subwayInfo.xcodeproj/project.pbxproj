@@ -3,27 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		FB5825BC2772F530007A34A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5825BB2772F530007A34A3 /* AppDelegate.swift */; };
 		FB5825BE2772F530007A34A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5825BD2772F530007A34A3 /* SceneDelegate.swift */; };
-		FB5825C02772F530007A34A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5825BF2772F530007A34A3 /* ViewController.swift */; };
-		FB5825C32772F530007A34A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5825C12772F530007A34A3 /* Main.storyboard */; };
+		FB5825C02772F530007A34A3 /* StationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5825BF2772F530007A34A3 /* StationSearchViewController.swift */; };
 		FB5825C52772F533007A34A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB5825C42772F533007A34A3 /* Assets.xcassets */; };
 		FB5825C82772F533007A34A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5825C62772F533007A34A3 /* LaunchScreen.storyboard */; };
+		FB5825D12772F59D007A34A3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FB5825D02772F59D007A34A3 /* SnapKit */; };
+		FB5825D327730800007A34A3 /* DetailStationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5825D227730800007A34A3 /* DetailStationSearchViewController.swift */; };
+		FB5825D527730C36007A34A3 /* DetailStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5825D427730C35007A34A3 /* DetailStationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FB5825B82772F530007A34A3 /* subwayInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = subwayInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB5825BB2772F530007A34A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB5825BD2772F530007A34A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FB5825BF2772F530007A34A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FB5825C22772F530007A34A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB5825BF2772F530007A34A3 /* StationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSearchViewController.swift; sourceTree = "<group>"; };
 		FB5825C42772F533007A34A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB5825C72772F533007A34A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB5825C92772F533007A34A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB5825D227730800007A34A3 /* DetailStationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStationSearchViewController.swift; sourceTree = "<group>"; };
+		FB5825D427730C35007A34A3 /* DetailStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB5825D12772F59D007A34A3 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,8 +62,9 @@
 			children = (
 				FB5825BB2772F530007A34A3 /* AppDelegate.swift */,
 				FB5825BD2772F530007A34A3 /* SceneDelegate.swift */,
-				FB5825BF2772F530007A34A3 /* ViewController.swift */,
-				FB5825C12772F530007A34A3 /* Main.storyboard */,
+				FB5825BF2772F530007A34A3 /* StationSearchViewController.swift */,
+				FB5825D227730800007A34A3 /* DetailStationSearchViewController.swift */,
+				FB5825D427730C35007A34A3 /* DetailStationCell.swift */,
 				FB5825C42772F533007A34A3 /* Assets.xcassets */,
 				FB5825C62772F533007A34A3 /* LaunchScreen.storyboard */,
 				FB5825C92772F533007A34A3 /* Info.plist */,
@@ -83,6 +88,9 @@
 			dependencies = (
 			);
 			name = subwayInfo;
+			packageProductDependencies = (
+				FB5825D02772F59D007A34A3 /* SnapKit */,
+			);
 			productName = subwayInfo;
 			productReference = FB5825B82772F530007A34A3 /* subwayInfo.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +118,9 @@
 				Base,
 			);
 			mainGroup = FB5825AF2772F530007A34A3;
+			packageReferences = (
+				FB5825CF2772F59D007A34A3 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = FB5825B92772F530007A34A3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,7 +137,6 @@
 			files = (
 				FB5825C82772F533007A34A3 /* LaunchScreen.storyboard in Resources */,
 				FB5825C52772F533007A34A3 /* Assets.xcassets in Resources */,
-				FB5825C32772F530007A34A3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB5825C02772F530007A34A3 /* ViewController.swift in Sources */,
+				FB5825D527730C36007A34A3 /* DetailStationCell.swift in Sources */,
+				FB5825D327730800007A34A3 /* DetailStationSearchViewController.swift in Sources */,
+				FB5825C02772F530007A34A3 /* StationSearchViewController.swift in Sources */,
 				FB5825BC2772F530007A34A3 /* AppDelegate.swift in Sources */,
 				FB5825BE2772F530007A34A3 /* SceneDelegate.swift in Sources */,
 			);
@@ -146,14 +158,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FB5825C12772F530007A34A3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB5825C22772F530007A34A3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FB5825C62772F533007A34A3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -341,6 +345,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FB5825CF2772F59D007A34A3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FB5825D02772F59D007A34A3 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB5825CF2772F59D007A34A3 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FB5825B02772F530007A34A3 /* Project object */;
 }
