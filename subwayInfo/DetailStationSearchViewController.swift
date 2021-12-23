@@ -10,28 +10,33 @@ import SnapKit
 import Alamofire
 
 class DetailStationSearchViewController : UIViewController {
+    private let station : Station
+    private var realtimeArrivalList: [StationArrivalDataResponseModel.realtimeArrivalList] = []
     
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        
+       
         refreshControl.addTarget(self, action: #selector(fetchData), for: .valueChanged)
         
         return refreshControl
     }()
     
     @objc func fetchData() {
-        print("REFRESH !!")
-      
-        //refreshControl.endRefreshing()
+        let stationName = station.stationName
         
-        let urlString = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/왕십리"
+        let urlString = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(stationName)"
+        
         AF.request(urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
             .responseDecodable(of: StationArrivalDataResponseModel.self) {[weak self] response in
                 
                 self?.refreshControl.endRefreshing()
+                
+                
                 guard case .success(let data) = response.result else {return}
                 
-                print(data.realtimeArrivalList)
+                self?.realtimeArrivalList = data.realtimeArrivalList
+                self?.collectionView.reloadData()
+       
             }.resume()
     }
     
@@ -57,13 +62,25 @@ class DetailStationSearchViewController : UIViewController {
         return collectionView
     }()
     
+    init(station: Station)
+    {
+        self.station = station
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "역 이름"
+        navigationItem.title = "\(station.stationName)"
         
         view.addSubview(collectionView)
         
@@ -79,14 +96,17 @@ class DetailStationSearchViewController : UIViewController {
 extension DetailStationSearchViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        return realtimeArrivalList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailStationCell", for: indexPath) as? DetailStationCell
         
-        cell?.setupLayout()
+        
+        
+        let realTimeArrival = realtimeArrivalList[indexPath.row]
 
+        cell?.setupLayout(with: realTimeArrival)
         
         return cell ?? UICollectionViewCell()
 

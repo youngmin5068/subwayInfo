@@ -116,7 +116,9 @@ extension StationSearchViewController : UITableViewDataSource {
 
 extension StationSearchViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let VC =  DetailStationSearchViewController()
+        let station = stations[indexPath.row]
+        
+        let VC =  DetailStationSearchViewController(station: station)
         navigationController?.pushViewController(VC, animated: true)
     }
 }
